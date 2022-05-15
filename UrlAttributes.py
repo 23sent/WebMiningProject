@@ -10,13 +10,16 @@ from urllib.parse import urlparse
 
 logging.basicConfig(filename='UrlAttributes.log', filemode='w', format='%(asctime)s - %(levelname)s:  %(message)s', level=logging.DEBUG)
 
-#TODO
-# Custom user-agent eklenecek.
-# 
 class UrlAttributes():
     @staticmethod
     def setAttributes(website):
-        page = requests.get(website.url)
+        try:
+            page = requests.get(website.url)
+            if page.status_code != 200:
+                print("Request failed: ", website.url)
+        except Exception as e:
+            print(e)
+
         soup = BeautifulSoup(page.content, "html.parser")
 
         website.isWordpress = UrlAttributes.isWordpress(website)
@@ -140,7 +143,6 @@ class UrlAttributes():
         description = soup.find("meta", attrs={'property':'og:description'})
         if description and description["content"] and  re.search("blog", description["content"]):
             return 1
-        
         return 0
 
     #Utku
@@ -155,8 +157,7 @@ class UrlAttributes():
         if not len(path):
             return 0
         return len(path.strip("/").split("/"))
-        
 
 if __name__ == "__main__":
-    att = UrlAttributes.setAttributes(Website("https://balkin.blogspot.com/2018/10/our-inevitably-living-constitution.html", 0))
+    att = UrlAttributes.setAttributes(Website("http://ibj.com", 0))
     # att2 = UrlAttributes.getAttributes("https://pwnlab.me/tr-file-upload-zafiyeti-ve-istismari-bwapp-high-level/")

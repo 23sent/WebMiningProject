@@ -35,4 +35,4 @@ class GenerateSitemap():
 
     
 if __name__ == "__main__":
-    GenerateSitemap("nonBlogUrls.txt", "non_blog_sitemaps.txt", "non_blog_url_count.txt", 150)
+    GenerateSitemap("non_blog_url_2.txt", "non_blog_sitemaps_2.txt", "non_blog_url_count_2.txt", 300)

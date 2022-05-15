@@ -5,6 +5,7 @@ import urllib.robotparser as robotparser
 from urllib.parse import urljoin
 import logging
 
+ALLOW_REDIRECTS = True
 
 class Sitemap():
   def __init__(self, domain, max_scope = 1000):
@@ -32,7 +33,6 @@ class Sitemap():
       self.map.add(self.domain)
 
     sitemapXMLs = self.getSitemapXml()
-
     if (sitemapXMLs):
       for sitemapUrl in sitemapXMLs:
           self.parseUrlsFromSitemap(sitemapUrl)
@@ -44,10 +44,10 @@ class Sitemap():
         parser.set_url(robots_url)
         parser.read()
         sitemaps = parser.site_maps()
-        if sitemaps:
+        if sitemaps != None:
             return sitemaps
         else:
-            [urljoin(self.domain, 'sitemap.xml')]
+            return [urljoin(self.domain, 'sitemap.xml')]
     except Exception as e:
         return []
 
@@ -57,7 +57,7 @@ class Sitemap():
 
     logging.debug("Request to: {}".format(sitemapUrl))
     try:
-      response =  requests.get(sitemapUrl, allow_redirects=False)
+      response =  requests.get(sitemapUrl, allow_redirects=ALLOW_REDIRECTS)
       if (response.status_code != 200):
         logging.error("Request failed, status code: {}".format(response.status_code))
         return False
@@ -83,5 +83,5 @@ class Sitemap():
 
 if __name__ == "__main__":
   logging.basicConfig(filename='sitemapGen.log', filemode='w', format='%(asctime)s - %(levelname)s:  %(message)s', level=logging.DEBUG)
-  site = Sitemap("http://www.AirlineReporter.com") 
+  site = Sitemap("https://getbootstrap.com") 
   print(len(site.map))
