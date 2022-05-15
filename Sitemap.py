@@ -7,9 +7,8 @@ import logging
 
 
 class Sitemap():
-  MAX_SCOPE = 1000
-
-  def __init__(self, domain):
+  def __init__(self, domain, max_scope = 1000):
+    self.MAX_SCOPE = max_scope
     self.domain = domain
     self.map = set()
     self.generateMap()
@@ -55,12 +54,12 @@ class Sitemap():
 
     logging.debug("Request to: {}".format(sitemapUrl))
     try:
-      response =  requests.get(sitemapUrl)
+      response =  requests.get(sitemapUrl, allow_redirects=False)
       if (response.status_code != 200):
         logging.error("Request failed, status code: {}".format(response.status_code))
         return False
 
-    except requests.exceptions.ConnectionError as error:
+    except  Exception as error:
       logging.error(error)
       return False
 

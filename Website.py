@@ -1,16 +1,38 @@
 class Website():
-    def __init__(self, url="http://example.com", isBlog=0, isWordpress=0, isBlogSpot=0, isUrlIncludeDateTime=0, isUrlIncludeDomainPostTitle=0, isUrlIncludeYearMonthPostTitlifehacker=0, isUrlIncludeDomainPostTitleNumbers=0, urlLen=0, numOfBlogKeyword=0, numOfKeywords=0, isPrefixBlog=0, isMetaTagIncludeBlogKeyword=0, isUrlSuffixHTML=0):
+    ATTRIBUTE_NAMES = [
+        "url",
+        "isBlog",
+        "isWordpress",
+        "isBlogSpot",
+        "isUrlIncludeDate",
+        "isUrlIncludeDomainPostTitle",
+        "isUrlIncludeYearMonthPostTitle",
+        "isUrlIncludeDomainPostTitleNumbers",
+        "urlLen",
+        "numOfKeywords",
+        "isPrefixBlog",
+        "isMetaTagIncludeBlogKeyword",
+        "isUrlSuffixHTML",
+        "domainLen",
+        "pathNumberCount",
+        "lenOfPath",
+    ]
+
+    def __init__(self, url="http://example.com", isBlog = 0):
         self.url = url
         self.isBlog = isBlog
-        self.isWordpress = isWordpress
-        self.isBlogSpot = isBlogSpot
-        self.isUrlIncludeDateTime = isUrlIncludeDateTime
-        self.isUrlIncludeDomainPostTitle = isUrlIncludeDomainPostTitle
-        self.isUrlIncludeYearMonthPostTitlifehacker = isUrlIncludeYearMonthPostTitlifehacker
-        self.isUrlIncludeDomainPostTitleNumbers = isUrlIncludeDomainPostTitleNumbers
-        self.urlLen = urlLen
-        self.numOfBlogKeyword = numOfBlogKeyword
-        self.numOfKeywords = numOfKeywords
-        self.isPrefixBlog = isPrefixBlog
-        self.isMetaTagIncludeBlogKeyword = isMetaTagIncludeBlogKeyword
-        self.isUrlSuffixHTML = isUrlSuffixHTML
+        self.isWordpress = 0
+        self.isBlogSpot = 0
+        self.isUrlIncludeDate = 0
+        self.isUrlIncludeDomainPostTitle = 0
+        self.isUrlIncludeYearMonthPostTitle = 0
+        self.isUrlIncludeDomainPostTitleNumbers = 0
+        self.urlLen = 0
+        self.numOfKeywords = 0
+        self.isPrefixBlog = 0
+        self.isMetaTagIncludeBlogKeyword = 0
+        self.isUrlSuffixHTML = 0
+        self.numOfBlogKeywords = 0 
+        self.domainLen = 0
+        self.pathNumberCount = 0
+        self.lenOfPath = 0
