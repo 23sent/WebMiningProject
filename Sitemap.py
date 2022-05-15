@@ -20,7 +20,7 @@ class Sitemap():
       if (response.status_code != 200):
         logging.error("Request failed, status code: {}".format(response.status_code))
         return False
-    except requests.exceptions.ConnectionError as error:
+    except Exception as error:
       logging.error(error)
       return False
     return True
@@ -38,15 +38,18 @@ class Sitemap():
           self.parseUrlsFromSitemap(sitemapUrl)
 
   def getSitemapXml(self):
-    robots_url = urljoin(self.domain, 'robots.txt')
-    parser = robotparser.RobotFileParser()
-    parser.set_url(robots_url)
-    parser.read()
-    sitemaps = parser.site_maps()
-    if sitemaps:
-      return sitemaps
-    else:
-      [urljoin(self.domain, 'sitemap.xml')]
+    try:
+        robots_url = urljoin(self.domain, 'robots.txt')
+        parser = robotparser.RobotFileParser()
+        parser.set_url(robots_url)
+        parser.read()
+        sitemaps = parser.site_maps()
+        if sitemaps:
+            return sitemaps
+        else:
+            [urljoin(self.domain, 'sitemap.xml')]
+    except Exception as e:
+        return []
 
   def parseUrlsFromSitemap(self, sitemapUrl):
     if len(self.map) > self.MAX_SCOPE: 
@@ -59,7 +62,7 @@ class Sitemap():
         logging.error("Request failed, status code: {}".format(response.status_code))
         return False
 
-    except  Exception as error:
+    except Exception as error:
       logging.error(error)
       return False
 

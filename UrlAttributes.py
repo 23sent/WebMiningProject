@@ -71,7 +71,6 @@ class UrlAttributes():
         if "." in domain: 
             domain = domain.replace(".","\.")
         domain_post_title_pattern = ".*{}/([a-zA-Z]+(-[a-zA-Z0-9]+)+)$".format(domain)
-        print("Path: "+ path)
 
         #Check certainity of post title into url if format is domain/text-values
         if re.search(domain_post_title_pattern, website.url):
@@ -88,7 +87,7 @@ class UrlAttributes():
                     numOfOccurence += 1
             
             certainity = numOfOccurence / len(path_words)
-            print("Title: " + title_special_removed + "\n Certainity: " +str(certainity))
+            # print("Title: " + title_special_removed + "\n Certainity: " +str(certainity))
             return 1 if certainity > 0.5 else 0
         return 0
 

@@ -1,22 +1,4 @@
 class Website():
-    ATTRIBUTE_NAMES = [
-        "url",
-        "isBlog",
-        "isWordpress",
-        "isBlogSpot",
-        "isUrlIncludeDate",
-        "isUrlIncludeDomainPostTitle",
-        "isUrlIncludeYearMonthPostTitle",
-        "isUrlIncludeDomainPostTitleNumbers",
-        "urlLen",
-        "numOfKeywords",
-        "isPrefixBlog",
-        "isMetaTagIncludeBlogKeyword",
-        "isUrlSuffixHTML",
-        "domainLen",
-        "pathNumberCount",
-        "lenOfPath",
-    ]
 
     def __init__(self, url="http://example.com", isBlog = 0):
         self.url = url
@@ -36,3 +18,6 @@ class Website():
         self.domainLen = 0
         self.pathNumberCount = 0
         self.lenOfPath = 0
+        
+        
+
