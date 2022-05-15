@@ -1,0 +1,33 @@
+1- meta etiketlerinde "blog" ifadesi geçiyor. -> meta description'da --> <meta name="og:description" content="A Red Sox blog with humor and news">
+2- url "wp-" içeriyor
+3- url ".blogspot" içeriyor
+4- url "/2022/5/13/23070197/" şeklinde yapı içeriyor
+5- url "domain/post-title içeriyor":
+Url: https://jezebel.com/madison-cawthorn-wants-the-cdc-to-count-abortions-in-u-1848922598
+title: Madison Cawthorn Wants the CDC to Count Abortions in U.S. Death Rates
+
+6- url "/2022/05/post-title" içeriyor
+https://robertspencer.org/2022/05/acting-nih-top-dog-fauci-and-others-received-350000000-in-secret-royalties-from-pharmaceutical-firms
+
+7- url "domain/post-title-randomSayılar içeriyor"
+
+8- url "domain/category/post-title" içeriyor
+9- url "blog." içeriyor
+10- url "domain/year/month/post-title.EXTENSION" içeriyor (HTML)
+
+
+
+------ ATTRIBUTES ------
+isBlog
+isWordpress
+isBlogSpot
+isUrlIncludeDateTime
+isUrlIncludeDomainPostTitle
+isUrlIncludeYearMonthPostTitlifehacker
+isUrlIncludeDomainPostTitleNumbers
+urlLen
+numOfBlogKeyword
+numOfKeywords
+isPrefixBlog
+isMetaTagIncludeBlogKeyword
+isUrlSuffixHTML

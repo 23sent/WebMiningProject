@@ -1,0 +1,85 @@
+from threading import local
+import requests
+from bs4 import BeautifulSoup
+import urllib.robotparser as robotparser
+from urllib.parse import urljoin
+import logging
+
+
+class Sitemap():
+  MAX_SCOPE = 1000
+
+  def __init__(self, domain):
+    self.domain = domain
+    self.map = set()
+    self.generateMap()
+
+  def checkDomain(self):
+    logging.debug("Check domain: {}".format(self.domain))
+    try:
+      response =  requests.get(self.domain)
+      if (response.status_code != 200):
+        logging.error("Request failed, status code: {}".format(response.status_code))
+        return False
+    except requests.exceptions.ConnectionError as error:
+      logging.error(error)
+      return False
+    return True
+
+  def generateMap(self):
+    if not self.checkDomain():
+      return self.map
+    else:
+      self.map.add(self.domain)
+
+    sitemapXMLs = self.getSitemapXml()
+
+    if (sitemapXMLs):
+      for sitemapUrl in sitemapXMLs:
+          self.parseUrlsFromSitemap(sitemapUrl)
+
+  def getSitemapXml(self):
+    robots_url = urljoin(self.domain, 'robots.txt')
+    parser = robotparser.RobotFileParser()
+    parser.set_url(robots_url)
+    parser.read()
+    sitemaps = parser.site_maps()
+    if sitemaps:
+      return sitemaps
+    else:
+      [urljoin(self.domain, 'sitemap.xml')]
+
+  def parseUrlsFromSitemap(self, sitemapUrl):
+    if len(self.map) > self.MAX_SCOPE: 
+      return False
+
+    logging.debug("Request to: {}".format(sitemapUrl))
+    try:
+      response =  requests.get(sitemapUrl)
+      if (response.status_code != 200):
+        logging.error("Request failed, status code: {}".format(response.status_code))
+        return False
+
+    except requests.exceptions.ConnectionError as error:
+      logging.error(error)
+      return False
+
+    soup = BeautifulSoup(response.content, "xml")
+
+    for element in soup.findAll('url'):
+      if len(self.map) > self.MAX_SCOPE: 
+        return False
+
+      self.map.add(element.find("loc").string)
+
+    sitemapTags = soup.findAll('sitemap')
+    if sitemapTags:
+      for element in sitemapTags:
+          sitemap_url = element.find('loc').string
+          self.parseUrlsFromSitemap(sitemap_url)
+
+
+if __name__ == "__main__":
+  logging.basicConfig(filename='sitemapGen.log', filemode='w', format='%(asctime)s - %(levelname)s:  %(message)s', level=logging.DEBUG)
+  site = Sitemap("http://www.AirlineReporter.com") 
+  print(len(site.map))
