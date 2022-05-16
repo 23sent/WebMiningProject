@@ -1,3 +1,5 @@
+#Resul Bozburun
+
 from bs4 import BeautifulSoup
 import requests
 from time import sleep
@@ -57,6 +59,7 @@ class GetBlogUrls:
             blog_urls_file.write(url+'\n')
         blog_urls_file.close()
 
+
 class GetUrlsFromBuiltWith:
     logging.basicConfig(filename='getUrls.log', filemode='w', format='%(asctime)s - %(levelname)s:  %(message)s')
     
@@ -77,7 +80,7 @@ class GetUrlsFromBuiltWith:
             non_blog_urls_file.write(url+"\n")
         non_blog_urls_file.close()
 
-    
+ 
 class GetBlogUrlsFromBuiltWith:
     logging.basicConfig(filename='getUrls.log', filemode='w', format='%(asctime)s - %(levelname)s:  %(message)s')
     BUILTWITH_URL = "https://builtwith.com/website-lists/Blog"

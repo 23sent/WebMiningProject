@@ -1,3 +1,7 @@
+#Resul Bozburun & Utku Sağocak
+
+import os
+from tokenize import String
 from Website import Website
 import logging  
 from bs4 import BeautifulSoup

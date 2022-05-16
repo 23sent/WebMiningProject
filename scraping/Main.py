@@ -1,8 +1,11 @@
+#Resul Bozburun & Utku Sağocak
+
 import logging
 from Website import Website
 from UrlAttributes import UrlAttributes
 from concurrent.futures import ProcessPoolExecutor
 import time
+
 class Main:
     ATTRIBUTE_NAMES = Website.ATTRIBUTE_NAMES
     executor = ProcessPoolExecutor(59)
