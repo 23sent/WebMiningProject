@@ -45,4 +45,10 @@ ProjectRoot
 
 
 
+## Authors
+
+- [@rbozburun - Resul Bozburun](https://github.com/rbozburun)
+- [@23sent - Utku Sağocak](https://github.com/23sent)
+
+
 
