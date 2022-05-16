@@ -52,7 +52,7 @@ class GetBlogUrls:
             if blog_url not in blog_urls:
                 blog_urls.append(blog_url)
         
-        blog_urls_file = open("blog_urls.txt","w")
+        blog_urls_file = open("output/blog_urls.txt","w")
         for url in blog_urls:
             blog_urls_file.write(url+'\n')
         blog_urls_file.close()
@@ -72,7 +72,7 @@ class GetUrlsFromBuiltWith:
                 if row.has_attr("data-domain"):
                     urls.append("http://"+row["data-domain"])
             
-        non_blog_urls_file = open("nonBlogUrls.txt","a+")
+        non_blog_urls_file = open("output/nonBlogUrls.txt","a+")
         for url in urls:
             non_blog_urls_file.write(url+"\n")
         non_blog_urls_file.close()
@@ -94,7 +94,7 @@ class GetBlogUrlsFromBuiltWith:
                 if row.has_attr("data-domain"):
                     blog_urls.append("http://"+row["data-domain"])
             
-        blog_urls_file = open("blog_urls.txt","a+")
+        blog_urls_file = open("output/blog_urls.txt","a+")
         for url in blog_urls:
             blog_urls_file.write(url+'\n')
         blog_urls_file.close()

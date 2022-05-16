@@ -3,7 +3,7 @@ import logging
 logging.basicConfig(filename='sitemapGen.log', filemode='w', format='%(asctime)s - %(levelname)s:  %(message)s', level=logging.DEBUG)
 
 
-
+# Utku Sağocak
 class GenerateSitemap():
     def __init__(self, urlsFilename, blogSitemapsFilename, blogUrlCountsname, max_scope = 1000 ):
         urls = open(urlsFilename, 'r')

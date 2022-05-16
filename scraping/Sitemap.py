@@ -6,6 +6,7 @@ import logging
 
 ALLOW_REDIRECTS = True
 
+# Utku Sağocak
 class Sitemap():
   def __init__(self, domain, max_scope = 1000):
     self.MAX_SCOPE = max_scope
