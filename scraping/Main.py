@@ -72,7 +72,6 @@ class Main:
     def createWebsiteObj(self, url, isblog=0):
         website = Website(url, isblog)
         UrlAttributes.setAttributes(website)
-        # self.blog_website_objs.append(website)
         print("Website object created for URL: " + url)
         return website
 
