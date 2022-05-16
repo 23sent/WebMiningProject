@@ -14,7 +14,7 @@ class Main:
         self.getNonBlogWebsiteObjs()        
 
     def getNonBlogWebsiteObjs(self):
-        non_blog_urls_file = open("random_1000_nonblog_sitemaps.txt","r")
+        non_blog_urls_file = open("output/random_1000_nonblog_sitemaps.txt","r")
 
         starttime = time.time()
         try:
@@ -29,7 +29,7 @@ class Main:
         print("Total nonblog objects: ", len(self.non_blog_website_objs))
         non_blog_urls_file.close()
 
-        non_blog_website_obj_file = open("nonblog-dataset-2k.csv","w")
+        non_blog_website_obj_file = open("data/nonblog-dataset-2k.csv","w")
         non_blog_website_obj_file.write("\n")
         for website in self.non_blog_website_objs:
             non_blog_website_obj_file.write("{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n".format(
@@ -42,7 +42,7 @@ class Main:
 
 
     def getBlogWebsiteObjs(self):
-        blog_urls_file = open("random-10k-blog-urls.txt","r")      
+        blog_urls_file = open("output/random-10k-blog-urls.txt","r")      
         starttime = time.time()
         try:
             for r in self.executor.map(self.createWebsiteObj, blog_urls_file.read().split("\n")):
@@ -56,7 +56,7 @@ class Main:
         print("Total", len(self.blog_website_objs))
         blog_urls_file.close()
 
-        blog_website_obj_file = open("blog-dataset-10k.csv","w")
+        blog_website_obj_file = open("data/blog-dataset-10k.csv","w")
         # blog_website_obj_file.writelines(",".join(self.ATTRIBUTE_NAMES))
         blog_website_obj_file.write("\n")
         
