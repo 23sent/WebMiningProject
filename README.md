@@ -10,6 +10,10 @@ As a result, we got 2 datasets one of them contains information about blogs and 
 After the data collection step, we loaded our data to a Jupyter Notebook and normalize it. Then we developed machine learning models with **Naive Bayes**, **KNN**, **C-Support Vector** and **Decision Tree** algorithms. 
 	Finally we train a KNN classifier that has ~98% accuracy.
 	
+![Logo](shuffle.png)
+
+
+	
 List of technologies we used:
 ```bash
 - Python with BeatifulSoup and requests libraries to collect data from web pages.
