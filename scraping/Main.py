@@ -35,7 +35,7 @@ class Main:
             non_blog_website_obj_file.write("{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n".format(
                 website.url, website.isBlog, website.isWordpress, website.isBlogSpot, website.isUrlIncludeDate, website.isUrlIncludeDomainPostTitle,
                 website.isUrlIncludeYearMonthPostTitle, website.isUrlIncludeDomainPostTitleNumbers, website.urlLen, website.numOfKeywords,
-                website.isPrefixBlog, website.isMetaTagIncludeBlogKeyword, website.isUrlSuffixHTML, website.domainLen, website.pathNumberCount,
+                website.isIncludeBlog, website.isMetaTagIncludeBlogKeyword, website.isUrlSuffixHTML, website.domainLen, website.pathNumberCount,
                 website.lenOfPath
             ))
         non_blog_website_obj_file.close()
@@ -64,7 +64,7 @@ class Main:
             blog_website_obj_file.write("{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n".format(
                 website.url, website.isBlog, website.isWordpress, website.isBlogSpot, website.isUrlIncludeDate, website.isUrlIncludeDomainPostTitle,
                 website.isUrlIncludeYearMonthPostTitle, website.isUrlIncludeDomainPostTitleNumbers, website.urlLen, website.numOfKeywords,
-                website.isPrefixBlog, website.isMetaTagIncludeBlogKeyword, website.isUrlSuffixHTML, website.domainLen, website.pathNumberCount,
+                website.isIncludeBlog, website.isMetaTagIncludeBlogKeyword, website.isUrlSuffixHTML, website.domainLen, website.pathNumberCount,
                 website.lenOfPath
             ))
         blog_website_obj_file.close()

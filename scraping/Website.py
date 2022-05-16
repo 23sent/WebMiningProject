@@ -9,7 +9,7 @@ class Website():
         "isUrlIncludeYearMonthPostTitle",
         "urlLen",
         "numOfKeywords",
-        "isPrefixBlog",
+        "isIncludeBlog",
         "isMetaTagIncludeBlogKeyword",
         "isUrlSuffixHTML",
         "domainLen",
@@ -26,7 +26,7 @@ class Website():
         self.isUrlIncludeYearMonthPostTitle = 0
         self.urlLen = 0
         self.numOfKeywords = 0
-        self.isPrefixBlog = 0
+        self.isIncludeBlog = 0
         self.isMetaTagIncludeBlogKeyword = 0
         self.isUrlSuffixHTML = 0
         self.numOfBlogKeywords = 0 

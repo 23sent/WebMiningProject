@@ -32,7 +32,7 @@ class UrlAttributes():
         website.isUrlIncludeYearMonthPostTitle = UrlAttributes.isUrlIncludeYearMonthPostTitle(website)        
         website.pathNumberCount = UrlAttributes.pathNumberCount(website)
         website.urlLen = UrlAttributes.urlLen(website)
-        website.isPrefixBlog = UrlAttributes.isPrefixBlog(website)
+        website.isIncludeBlog = UrlAttributes.isIncludeBlog(website)
         website.isMetaTagIncludeBlogKeyword = UrlAttributes.isMetaTagIncludeBlogKeyword(soup)
         website.isUrlSuffixHTML = UrlAttributes.isUrlSuffixHTML(website)
         website.lenOfPath = UrlAttributes.lenOfPath(website)
@@ -112,21 +112,20 @@ class UrlAttributes():
     def urlLen(website):
         return len(website.url)
 
-
-    #Return number of "blog" keywords into page content => RESUL
+    #Resul
+    #Return number of "blog" keywords into page content
     def numOfBlogKeywords(website, soup):
         return str(soup).count("blog")
 
-        
-
-    #Return number of ald words into page content => RESUL
+    #Resul
+    #Return number of ald words into page content
     def numOfKeywords(website, soup):
         word_pattern = "\w+"
         return len(re.findall(word_pattern, str(soup)))
 
     #Utku
-    #Check the url includes "blog."
-    def isPrefixBlog(website):
+    #Check the domain includes "blog"
+    def isIncludeBlog(website):
         parsedUrl = urlparse(website.url)
         return 1 if re.search("blog", parsedUrl.hostname) else 0
 

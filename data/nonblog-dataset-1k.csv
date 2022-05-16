@@ -1,4 +1,4 @@
-url,isBlog,isWordpress,isBlogSpot,isUrlIncludeDate,isUrlIncludeDomainPostTitle,isUrlIncludeYearMonthPostTitle,urlLen,numOfKeywords,isPrefixBlog,isMetaTagIncludeBlogKeyword,isUrlSuffixHTML,domainLen,pathNumberCount,lenOfPath
+url,isBlog,isWordpress,isBlogSpot,isUrlIncludeDate,isUrlIncludeDomainPostTitle,isUrlIncludeYearMonthPostTitle,urlLen,numOfKeywords,isIncludeBlog,isMetaTagIncludeBlogKeyword,isUrlSuffixHTML,domainLen,pathNumberCount,lenOfPath
 https://www.iu.edu/degrees/bloomington/bs-in-ballet/1796/index.html,0,0,0,0,0,0,67,5560,0,0,1,10,4,5
 https://www.marmara.edu.tr/news/53-lise-ogrencileri-arastirma-projeleri-istanbul-asya-bolgesi-odulleri-sahipleriyle-bulustu,0,0,0,0,0,0,123,15563,0,0,0,18,2,2
 https://ngkutahyaseramik.com.tr/urun/evani-bone-rektifiye-55011981r,0,0,0,0,0,0,67,5822,0,0,0,23,8,2
